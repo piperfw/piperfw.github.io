@@ -1,0 +1,170 @@
+/*
+===== Body ======
+*/
+body {
+	/* Move down content to accommodate fixed navbar 3.5rem tall */
+	padding-top: 3.5rem; 
+	font-family: helvetica;
+	/*Counter used for references (partially succesful)*/
+	counter-reset: reference;
+}
+
+
+/*
+===== navbar ======
+*/
+.navbar {
+  	font-family: helvetica;
+	background-color: #0c476b;
+	color: white;
+}
+.navbar .nav-link {
+	/*Take precedence over rules in bootstrap.min.css*/
+	color: white !important;
+}
+#title_pipe {
+	color: white;
+}
+.navbar .navbar-brand {
+	font-variant: small-caps;
+}
+#pipe_bar{
+        max-width: 10px; 
+ }
+/*Shift drop-down menu so doesn't hide title*/
+.dropdown-menu {
+	left: -50%;
+	right: auto;
+}
+
+
+/*
+===== Title (jumbotron) ======
+*/
+.jumbotron h1, .jumbotron h2 {
+	font-variant: small-caps;
+	font-family: helvetica;
+}
+.jumbotron {
+	color: white;
+	background-color: #0c476b;
+	/*Remove rounded corners*/
+	border-radius: 0px; 
+	/*Single border to separate title block from main*/
+	border-bottom: 1px solid black;
+	/*Reduced bottom margin so no unsightly gap before first section*/
+	margin-bottom: 20px;
+}
+#my_header {
+	font-size: 40px;
+}
+
+
+/*
+===== Columns ======
+*/
+
+/*Border on left-hand col only*/
+.col-lg-6:not(:last-child) {
+    border-right: 1px solid black; 
+}
+/*Remove border on md and below*/
+@media only screen and (max-width : 992px) {
+	.col-lg-6:not(:last-child) {
+	    border-right: 0px solid black;
+	}
+
+}
+
+/*
+===== Figures =====
+*/
+#box1 {
+	margin-top: 25px;
+	padding: 10px;
+    border: 1px solid red;
+    width: 80%;
+    max-width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 400px;
+    padding-bottom: 0px;
+}
+/*See modal.css for other images and the modals*/
+
+
+/*
+===== Links ======
+*/
+
+/*Change colour in navigation buttons appearing in each section*/
+.page-link {
+	color: #0c476b;
+}
+
+/*Custom anchor for figures to get scrolling correct*/
+a.anchor {
+	display: block;
+	position: relative;
+	top: 0px;
+	visibility: hidden;
+}
+
+/*References - a.ref is special anchor/link class for references*/
+/*.js located at bottom of file makes clicked reference highlight temporarily*/
+/*Still have to manually set in figure descriptions and modal */
+a.ref:link, a.ref:hover, a.ref:visited {
+  	font-family: helvetica;
+	color: black;
+	background-color: transparent; 
+	text-decoration: none;
+}
+a.ref:hover {
+	text-decoration: underline;
+}
+
+/*To make a reference, include an empty span element with the ref class*/
+span.ref:before {
+	counter-increment: reference;
+	content: "[" counter(reference) "]";
+}
+
+/*In modal figure captions no fancy counter usage and grey text*/
+a.ref_modal:link, a.ref_modal:hover, a.ref_modal:visited {
+  	font-family: helvetica;
+	color: #ccc;
+	background-color: transparent; 
+	text-decoration: none;
+}
+a.ref_modal:hover, #chambers {
+	text-decoration: underline;
+}
+/*Have to update counter for Chambers as this reference appears in modal caption ONLY*/
+#the_fractional_quantum_hall_effect {
+	counter-increment: reference;
+}
+
+/*Custom ordered list for references (use new counter)*/
+ul.reful:before {
+	counter-reset: reference2;
+}
+.reful {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+.reful {
+	padding-left: 1em;
+	text-indent: -2ch;
+}
+.reful li:before {
+	content: "[" counter(reference2, decimal) "]: ";
+}
+.reful li {
+	counter-increment: reference2;
+}
+/*Slightly smaller than main text*/
+#references {
+	font-size: 14px;
+}

@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Webpage on anyons and fractional statistics">
+  <meta name="author" content="Piper Fowler-Wright">
+  <meta name="keywords" content="Anyons, Fractional, Statistics, Cyon, Wilczek, Aharanov-Bohm, Quantum, Hall, Effect">
+
+  <link rel="icon" href="./images/LMRomanBoldA_padtop.ico">
+
+  <title>Anyons</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css" >
+
+  <!-- Main stylesheet for this webpage -->
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <!-- Custom responsive tooltip (also requires responsive_tooltip.js) -->
+  <link rel="stylesheet" href="./css/responsive_tooltip.css">
+
+  <!-- Stylesheet for modal images (also requires modal_img.js) -->
+  <link rel="stylesheet" href="./css/modal_img.css">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+  <a class="navbar-brand" href="#">Anyons</a>
+  <div id="pipe_bar" class="collapse navbar-collapse">
+    <ul class="navbar-nav">
+    <li>
+    <span id="title_pipe" class="navbar-text"><b>|</b></span>
+    </li>
+    </ul>
+  </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbar_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Sections</a>
+        <div class="dropdown-menu" aria-labelledby="navbar_dropdown">
+          <a class="dropdown-item" href="#introduction">Introduction</a>
+          <a class="dropdown-item" href="#the_cyon_system">The Cyon System</a>
+          <a class="dropdown-item" href="#the_aharanov_bohm_effect">The Aharonov-Bohm Effect</a>
+          <a class="dropdown-item" href="#the_fractional_quantum_hall_effect">The Fractional Quantum Hall Effect</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#references">References</a>
+          <a class="dropdown-item" href="#about_this_page">About This Page</a>
+      </li>
+    </ul>
+</nav>
+
+<main role="main">
+
+  <!-- jumbotron used as a title block/header (see Title section in style.css) -->
+  <div id="title_block" class="jumbotron">
+    <div class="container">
+      <h1 id="my_header">Anyons</h1>
+      <h2>Fractional Statistics In Two Dimensions</h2>
+    </div>
+  </div>
+
+  <!-- introduction -->
+  <div id="introduction"  class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>Introduction</h2>
+        <p>
+        The division of particles into two mutually exclusive classes &#45; Bosons and Fermions &#45; is a
+        familiar one. In quantum mechanics, the distinction is made according to the nature of the state vector
+        describing two indistinguishable particles of a given species: two identical fermions will always have an
+        <em>antisymmetric</em> state vector; two identical bosons a <em>symmetric</em> one. Equivalently, under the
+        exchange of two identical particles, a fermionic state vector picks up a phase factor of \(\exp(i\pi)\) 
+        (a minus sign), whereas the same action involving bosons leaves the corresponding state vector unchanged.
+        </p>
+        <p>
+        More generally, the identity of a particle is associated with a phase \(\displaystyle\lambda\Delta\theta\)
+        acquired following the rotation of two identical particles around each other by an angle \(\Delta \theta\).
+        Here \(\lambda\) is identified as the <em>statistics</em> and has a value of \(1\) and \(0\) for fermions
+        and bosons, respectively (<a href="#box1_anchor">Box 1</a>). Together with conventional interactions,
+        this parameter governs the behaviour of collections of identical particles.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <p>
+        The spin-statistics theorem, proven in three dimensions, relates the magnitude of spin of a particle &#45;
+        an invariant &#45; to its statistics. Particles with a spin \(s\) equal to an <em>odd</em> multiple of
+        \(1/2\) are fermions, while those with a spin to equal to an <em>even</em> multiple of \(1/2\) are bosons.
+        Succinctly: \(\lambda = 2s \ (\text{mod }2)\). Moreover,  in three dimensions, these are the only
+        possibilities <a class="ref" href="#shankar"><span class="ref"></span></a>.
+        </p>
+        <p>
+        In two dimensions, however, this is not the whole story. In fact, in \(d=2\) there are not only fermions and
+        bosons, but particles with  <em>any</em> statistics in between. Such particles are known as <em>anyons</em>
+        and are the subject of this poster. The prototypical anyonic system &#45; the 'cyon' &#45; is examined
+        below. In particular, the fractional nature of its spin 
+        (<a title="Go to: The Cyon System" href="#the_cyon_system"  rel="tooltip">The Cyon System</a>)
+        and statistics
+        (<a title="Go to: The Aharonov-Bohm Effect" href="#the_aharanov_bohm_effect"  rel="tooltip">The
+        Aharonov-Bohm Effect</a>). Two
+        dimensional systems are prevalent in condensed matter physics, hence the potential for anyons to be realised
+        is great. Here we consider the relevance of anyons to the fractional hall effect
+        (<a title="Go to: The Fractional Quantum Hall Effect" href="#the_fractional_quantum_hall_effect"
+        rel="tooltip">The Fractional Quantum Hall Effect</a>).
+        </p>
+        <nav aria-label="Section Navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled"><a class="page-link" href="#title_block">Previous Section</a></li>
+            <li class="page-item"><a class="page-link" href="#the_cyon_system">Next Section</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  <!-- 'Box' figure -->
+  <div id="box1">
+    <a class="anchor" id="box1_anchor"></a>
+      \[\text{Fermions } (\lambda = 1) \qquad \ \text{Bosons } (\lambda = 0)\]
+      \[\phantom{0}|ab\rangle = - |ba \rangle  \qquad \qquad |ab\rangle = + |ba \rangle\]
+    <div class="caption">
+      <p><b>Box 1:</b>
+      Two identical particles. If one particle is in a state described by the label \(a\), and the second in a state
+      described by \(b\), the statistics \(\lambda\) determines the phase factor \(\exp(i\lambda \pi)\) associated
+      with the exchange \(a \leftrightarrow b\). For fermions, setting \(b=a\) gives \(|aa\rangle=-|aa\rangle\), which
+      implies that \(|aa\rangle=0\); two identical fermions cannot be in the same quantum state (Pauli exclusion
+      Principle). Bosons suffer no such restriction.
+      </p>
+    </div>
+  </div> <!-- /box -->
+  <hr>
+  </div> <!-- /container -->
+
+  <!-- The Cyon System -->
+  <div id="the_cyon_system"  class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>The Cyon System</h2>
+        <p>
+        The cyon consists of a non-relativistic particle of charge \(q\) and mass \(m\) orbiting a magnetic flux
+        tube of strength \(\Phi\), localised at the origin and perpendicular to the orbital motion (\(xy\)-plane).
+        Such a tube may be realised by a thin magnetic solenoid of infinite extent along  the \(z\) axis, with
+        associated field \(\boldsymbol{B}=\Phi \delta(x)\delta(y)\bf{\hat{z}}\).
+        </p>
+        <p>
+        Neglecting any free motion along the axis of the solenoid, the system is effectively two-dimensional and
+        found to exhibit <em>fractional statistics.</em> In this section we establish that the mechanical angular
+        momentum of the cyon is shifted from the expected integer values by a fractional amount. This surprising 
+        result was firstly recognised by Frank Wilczek (<a href="#img01_anchor">Figure 1</a>)
+        in his 1982 seminal paper <a class="ref" href="#wilczek82"><span class="ref"></span></a>.
+        </p>
+        <p>
+         Denoting the position of the particle by \(\boldsymbol{r}\), the governing Lagrangian is
+         \[
+         \mathcal{L} = \frac{1}{2}m\boldsymbol{\dot{r}}^2+ \frac{q}{c}\boldsymbol{\dot{r}}\cdot\boldsymbol{A}
+         \] 
+         Here \(\boldsymbol{A}(\boldsymbol{r})\) is a vector potential for \(\boldsymbol{B}\); 
+         \(\nabla \wedge \boldsymbol{A}=\boldsymbol{B}\). The direction and axial symmetry of \(\boldsymbol{B}\)
+         mean that \(\boldsymbol{A}=A_{\varphi}(\rho)\boldsymbol{\hat{\varphi}}\), where
+         \(\boldsymbol{\hat{\varphi}}\) is a azimuthal unit vector for the cylindrical coordinates 
+         \([\rho,\varphi,z]\).
+        </p>
+        <p>
+         To obtain the associated Hamiltonian we need the canonical momentum
+         \[
+             \boldsymbol{p}_c = \frac{\partial \mathcal{L}}{\partial \boldsymbol{\dot{r}}} 
+             = m\boldsymbol{\dot{r}}+ \frac{q}{c}\boldsymbol{A},
+         \]
+        which differs from the familiar mechanical momentum \(m\boldsymbol{\dot{r}}\) by virtue of
+        \(\boldsymbol{A}\). Then
+        \[
+            \mathcal{H}(\boldsymbol{r},\boldsymbol{p}_c)
+            =\boldsymbol{p}_c\cdot\boldsymbol{\dot{r}}-\mathcal{L}=\frac{1}{2}m\boldsymbol{\dot{r}}^2 
+            = \frac{1}{2m}\left(\boldsymbol{p}_c-\frac{q}{c}\boldsymbol{A}\right)^2
+        \]
+        </p>
+        Moving to a quantum setting, the relevant Schr&ouml;dinger equation is, in the coordinate representation,
+        <p>
+        \[
+           \hat{H} \psi(\boldsymbol{r}) = \frac{1}{2m}\left(i\hbar \nabla + 
+           \frac{q}{c}\boldsymbol{A}\right)^2 \psi(\boldsymbol{r}) = E \psi(\boldsymbol{r})
+        \]
+        </p>
+        <p>
+          This may be solved using separation of variables, aided by the fact that \(\nabla \cdot \boldsymbol{A}=0\)
+          for our solenoid configuration. Of interest is that the <em>angular</em> part of the solution has the
+          expected form \(\exp(im\varphi)\), with \(m \in \mathbb{Z}\) to attain a single-valued wavefunction.
+        </p>
+        <p>
+         Next we appeal to the rotational invariance of \(\mathcal{H}\) about the \(z\)-axis: the <em>canonical</em>
+         orbital angular momentum along this axis, \(\ell_c=\left[\boldsymbol{r}\wedge \boldsymbol{p}_c\right]_z\),
+         is a constant of motion. With \(\boldsymbol{p}_c\) as above,
+         \[
+             \ell_c=\left[\boldsymbol{r}\wedge m\boldsymbol{\dot{r}} + \boldsymbol{r}\wedge
+              \frac{q}{c}\boldsymbol{A}\right]_z = \ell_z + \frac{q\Phi}{2\pi c}
+         \]
+         where \(\ell_z\) is the <em>mechanical</em> angular momentum.
+       </p>
+      </div>
+      <div class="col-lg-6">
+        <p>
+         Now, the canonical angular momentum is <em>always</em> associated with the operator 
+         \(\displaystyle -i\hbar \frac{\partial}{\partial \varphi}\), and so is quantised as \(\hbar m\) when
+         acting upon the angular dependence  \(\exp(im\varphi)\) of our solution <a class="ref" href="#lenda"><span class="ref"></span></a>. 
+       </p>
+       <p>
+         It follows that the mechanical angular momentum has the spectrum
+         \[
+          \ell_z = \hbar \left(m - \frac{q\Phi}{hc}\right), \qquad m \in \mathbb{Z}
+         \]
+         In a subtle twist, it is this angular momentum, and not \(\ell_c\), that is the relevant quantity when
+         describing phenomenon local to the cyon; Goldhaber and Mackenzie provided a complete argument for this
+         several years after  Wilczek's original paper <a class="ref" href="#goldhaber88"><span class="ref"></span></a>. As a result, it is appropriate to
+         identify the intrinsic angular momentum or <em>spin</em> of the cyon as the value of \( \ell_z\) 
+         when \(m=0\) (units \(\hbar\)):
+         \[
+          s = \left.\frac{\ell_z }{\hbar}\right\rvert_{m=0} = -\frac{q\Phi}{hc} 
+           \tag{\(\dagger\)}\label{cyon_spin}
+         \]
+         We see that, in general, \(s\) is neither integer nor half-integer.
+       </p>
+       <!-- Wilczek photograph (in column) -->
+       <div id="img01_container" class="text-center">
+        <a class="anchor" id="img01_anchor"></a>
+        <img src="./images/Frank_Wilczek_07_crop.jpg" class="rounded" alt="Photograph of Frank Wilczek" id="img_Frank_Wilczek_07">
+        <div id="img01_desc" class="desc"> 
+          <b>Figure 1:</b> Frank Wilczek in 2007  <a class="ref" href="#zirkel07"><span class="ref"></span></a>
+          (click to enlarge).
+          The first to identify the fractional nature of the angular momentum of the cyon, Frank later coined the
+          term 'anyons' to humorously suggest that  'anything goes' for particles with unusual statistics
+          <a class="ref" href="#wilczek18"><span class="ref"></span></a>.
+        </div>
+       </div>
+       <!-- Modal for figure 1 (see modal_img.css) -->
+       <div id="modal1" class="modal">
+         <span class="close", id="span1">&times;</span>
+         <img class="modal-content" id="img01">
+         <div  id="caption1">
+         <b>Figure 1:</b>
+         Frank Wilczek in 2007 <a class="ref_modal" href="#zirkel07">[5]</a>. The first to identify the fractional nature of the angular momentum
+         of the cyon, Frank later coined the  term 'anyons' to humorously suggest that  'anything goes' for particles
+         with unusual  statistics <a class="ref_modal" href="#wilczek18">[6]</a>.</div>
+       </div>
+       <!-- Navigation buttons ('pagination') -->
+       <nav aria-label="Section Navigation" class="section_nav">
+         <ul class="pagination justify-content-center">
+           <li class="page-item"><a class="page-link" href="#introduction">Previous Section</a></li>
+           <li class="page-item"><a class="page-link" href="#the_aharanov_bohm_effect">Next Section</a></li>
+         </ul>
+       </nav>
+      </div> <!-- col -- >
+    </div> <!-- row -->
+  </div>  <!-- container -->
+  <hr>
+  <!-- The aharanov-bohm effect -->
+  <div id="the_aharanov_bohm_effect"  class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>The Aharonov-Bohm Effect</h2>
+        <p>
+          In 1959, Yakir Aharonov and David Bohm devised a series of experiments to demonstrate that the potentials
+          \(\boldsymbol{A}\) and \(\phi\) had independent significance in quantum theory
+          (<a href="#img2_container">Figure 2</a>) <a class="ref" href="#aharonov59"><span class="ref"></span></a>.
+        </p>
+        <p>
+           In particular, the pair found that the wave function of a non-relativistic charged particle moving around
+           a <em>closed</em> path \(\Gamma\) in space-time acquires a phase
+           \[
+           -2\pi i\frac{q}{h}\oint_\Gamma\left( dt  \phi-  d\boldsymbol{r} \cdot\frac{\boldsymbol{A}}{c} \right) 
+           \tag{\(\ddagger\)}
+           \]
+           From this result it is a short step to the fractional statistics of the charged particle-flux system
+           described in the previous section: Consider a full revolution in space (\(dt=0\)) of the charge around
+           the flux-tube, which has localised field \(\boldsymbol{B}=\Phi \delta(x)\delta(y) \boldsymbol{\hat{z}}\).
+           Using Stokes' theorem, expression \((\ddagger)\) gives
+           \[
+            -2\pi i\frac{q}{h c}\oint_\Gamma d\boldsymbol{r} \cdot \boldsymbol{A}=-2\pi i\frac{q}{hc}\iint dxdy\,
+            B = -2\pi i \frac{q \Phi}{h c} 
+           \]
+        </p>
+      </div>
+      <div class="col-lg-6">
+       <p>
+         For a two-cyon state vector \(|1,2\rangle\), exchange generates <em>twice</em> this phase as the
+         particle of each cyon is moved around the flux tube of the other. Continuing the notation used in the
+         introduction, \(\Delta \theta = 2\pi\) and the statistics of the cyon is
+         \[
+            \lambda= - 2\frac{q\Phi}{hc}
+         \]
+       </p>
+       <p>
+         Not only is \(\lambda\) fractional, but comparison of its value to that obtained for the spin of the cyon 
+          \((\dagger)\) indicates that the conventional spin-statistics relation holds in this case too; that is,
+          \(\lambda=2s\).
+       </p>
+       <nav aria-label="Section Navigation">
+         <ul class="pagination justify-content-center">
+           <li class="page-item"><a class="page-link" href="#the_cyon_system">Previous Section</a></li>
+           <li class="page-item"><a class="page-link" href="#the_fractional_quantum_hall_effect">Next Section</a></li>
+         </ul>
+       </nav>
+      </div> <!-- col -->
+    </div>  <!-- row -->
+    <div id="img2_container" class="text-center">
+        <a class="anchor" id="img2_anchor"></a>
+        <img src="./images/anyons_fig2.svg" alt="Aharanov-Bohm experiement schematic" id="img_fig2">
+        <div id="img2_desc" class="desc"> 
+           <b>Figure 2:</b> 
+           A schematic for one of the experiments proposed by Aharonov and Bohm in their 1959 paper (click for further
+           information)
+           <a class="ref" href="#aharonov59">[7]</a>.
+         </div>
+    </div> <!-- img container -->
+    <!-- modal 2 -->
+    <div id="modal2" class="modal">
+      <span class = "close" id="span2">&times;</span>
+      <img class="modal-content" id="modal_img2">
+      <div  id="caption2">
+        <b>Figure 2:</b> 
+        A schematic for one of the experiments proposed by Aharonov and Bohm in their 1959 paper <a class="ref_modal" href="#aharonov59">[7]</a>. 
+        Here two electron beams pass around a solenoid (tube of magnetic flux) to interfere at \(Y\). The fringe
+        pattern is shifted from that observed when the solenoid is absent due to the different phases induced by
+        \(\boldsymbol{A}\) along the two electron paths. Note that, in the regions through which the beams pass,
+        \(\boldsymbol{A}\) is non-zero but \(\boldsymbol{B}\) is zero; the vector potential leads to a physical
+        effect even when no magnetic force acts. Within a year, Robert Chambers had successfully performed this
+        experiment and confirmed Aharonov and Bohm's prediction <a class="ref_modal" href="#chambers1960">[8]</a>,
+        since known as the <em>Aharonov–Bohm effect.</em>
+      </div>
+    </div>
+   <hr>
+  </div>  <!-- container -->
+  <!-- The fractional QHE -->
+  <div id="the_fractional_quantum_hall_effect"  class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>The Fractional Quantum Hall Effect</h2>
+        <p>
+          The Quantum Hall Effect (QHE) occurs in two-dimensional electronic systems subject to very low temperatures
+          and strong magnetic fields. It is characterised by the quantisation of
+          the transverse Hall conductance \(\sigma_H\) in units of \(e^2/h\):
+          \[
+          \sigma_H = \nu \frac{e^2}{h} 
+          \]
+          Here \(\nu\), known as the <em>filling factor,</em> takes integer or certain fractional values in the
+          integer and fractional QH effects, respectively. The corresponding Hall resistance shows a number of
+          plateaux labelled by \(\nu\) (<a href="#img3_container">Figure 3</a>).
+          For an explanation of the origin of quantum Hall effects, see the recent exposition
+          by Z. Ezawa <a class="ref" href="#ezawa08"><span class="ref"></span></a>.
+        </p>
+        <p>
+          In the theory of the fractional  QHE, the usual electron gas condenses into a peculiar collective ground
+           state resembling an incompressible liquid <a class="ref" href="#lenda">[3]</a>. In the state \(\nu=1/m\)
+           with \(m\in \mathbb{Z}\) odd, excitations take the form of quasielectron-quasihole pairs
+           <a class="ref" href="#ezawa08">[9]</a>,
+           where each quasiparticle posses a fractional charge \(\pm e^*\), with
+           \[
+            e^* = e/m
+            \]
+        </p>
+      </div>
+      <div class="col-lg-6">
+       <p>
+         Such a fractional property is reminiscent of anyons, and this is not misleading. For, in 1984,  Daniel
+         Arovas, John  Schrieffer and Frank Wilczek demonstrated that these quasiparticles also obeyed fractional
+         statistics <a class="ref" href="#arovas84"><span class="ref"></span></a>, and hence are indeed anyons.
+       </p>
+       <p>
+        The study of systems exhibiting the fraction QHE continues to be a very active research area, with several
+        unanswered questions. One such question is why a fractional state is observed at \(\nu=5/2\), since the
+        standard theory predicts fractional states at \(\nu = n/m\) for <em>odd</em>  \(m\) only. Here anyons with
+        an exotic form of exchange statistics, known as non-abelain anyons, may well provide an answer
+        <a class="ref" href="#willett13"><span class="ref"></span></a>. It is clear that  fractional statistics will
+        prove an integral part of any complete theory
+        of the fractional QHE.
+       </p>
+       <nav aria-label="Section Navigation">
+         <ul class="pagination justify-content-center">
+           <li class="page-item"><a class="page-link" href="#the_aharanov_bohm_effect">Previous Section</a></li>
+           <li class="page-item"><a class="page-link" href="#references">Next Section</a></li>
+         </ul>
+       </nav>
+      </div> 
+    </div>  <!-- row -->
+    <div id="img3_container" class="text-center">
+      <a class="anchor" id="img3_anchor"></a>
+      <img src="./images/anyons_fig3.svg" alt="Graph of Hall resitivity" id="img_fig3">
+      <div id="img3_desc" class="desc"> 
+       <b>Figure 3:</b> 
+       Schematic illustration of the <em>integer</em> Quantum Hall effect (click for further information).      
+      </div>
+      </div> <!-- img container -->
+      <!-- The Modal -->
+      <div id="modal3" class="modal">
+        <span class = "close" id="span3">&times;</span>
+        <img class="modal-content" id="modal_img3">
+        <div  id="caption3">
+          <b>Figure 3:</b> 
+          Schematic illustration of the <em>integer</em> Quantum Hall effect, based on that found in chapter 9 of 
+          Z. Ezawa <a class="ref_modal" href="#ezawa08">[9]</a>. According to the classical theory of an electron gas,
+          the Hall resistance \(R_H=1/\sigma_H\) is linear in the applied magnetic field \(B_\bot\). While this
+          accurately describes experimental results for weak magnetic fields  (\(\lesssim 0.3\ T\)) 
+          <a class="ref_modal" href="#ezawa08">[9]</a>, in stronger fields  \(R_H\) shows a stair case as the Hall
+          conductance undergoes transitions between quantised values labelled by \(\nu\) (note that 
+          \(\nu^{-1} \propto B_\bot\) according to the theory). In the fractional QHE, small plateaux also develop at
+          fractional \(\nu\).
+        </div>
+      </div>
+    <hr>
+  </div> <!-- container -->
+  <!-- References -->
+  <div id="references"  class="container">
+      <h2>References</h2>
+      <ul class="reful">
+        <li><a id="shankar">R. Shankar, <em>Principles of Quantum Mechanics</em>,
+        2nd ed. (Springer, New York, 2014).</a></li>
+        <li><a id="wilczek82">F. Wilczek, Phys. Rev. Lett.  <b>48</b>, 1144 (1982).</a></li>
+        <li><a id="lenda">A. Lerda, <em>Anyons</em> (Springer Berlin Heidelberg, Berlin, Heidelberg, 1992).</a></li>
+        <li><a id="goldhaber88">A. Goldhaber and R. Mackenzie, Phys. Lett. B <b>214</b>, 471 (1988).</a></li>
+        <li><a id="zirkel07">Photograph by K. Zirkel (2007).</a></li>
+        <li><a id="wilczek18">F. Wilczek, <em>Inside the Knotty World of 'Anyon' Particles</em>, Quanta Magazine (2017).</a></li>
+        <li><a id="aharonov59">Y. Aharonov and D. Bohm, Phys. Rev.  <b>115</b>, 485 (1960).</a></li>
+        <li><a id="chambers1960">R. Chambers, Phys. Rev. Lett. <b>5</b>, 3 (1988).</a></li>
+        <li><a id="ezawa08"> Z. Ezawa, <em>Quantum Hall effects Field Theoretical Approach and Related Topics</em>, 2nd ed. (World Scientific, New Jersey, 2008).</a></li>
+        <li><a id="arovas84">D. Arovas, J. Schrieffer and F. Wilczek, Phys. Rev. Lett.  <b>53</b>, 722 (1984).</a></li>
+        <li><a id="willett13">R. Willett <em>et al.</em>, Phys. Rev. Lett.  <b>111</b>, 186401 (2013).</a></li>
+      </ul>
+    <hr>
+  </div> <!-- container -->
+  <!-- About this page -->
+  <div class="ref" id="about_this_page"  class="container">
+    <div class="row">
+      <div class="col-lg-12">
+      <h2>About This Page</h2>
+      <p>
+        This webpage was prepared for the module: LH Current Topics in Theoretical Physics. Its purpose is to 
+        complement a poster written on anyons and fractional statistics, presenting my research on the topic in a
+        clear and interactive fashion.
+      </p>
+      <p>
+        Questions, suggestions and comments:
+        <code style="color:black; font-size:16px;">Anyonswebpage&#64;gmail.com</code>
+      </p>
+      </div>
+    </div>
+    <hr>
+  </div>
+  </main>
+  <!-- Footer -->
+  <div class="footer-copyright py-3 text-center">
+      © 2018 Piper Fowler-Wright 
+  </div>
+
+  <!-- js at end of page for performance reasons -->
+  <!-- Order is important (must load libraries before scripts!) -->
+  <!-- non-slim jQuery for various plugins (e.g. a dependency of zenscroll,responsive_tooltip) -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <script src="./js/jquery.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+
+  <!-- Mathjax for typesetting maths -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
+  <!-- Add-on to JQuery - used for effect (to 'highlight anchor' on click) -->
+  <script language="JavaScript" type="text/javascript" src="./js/jquery-ui.min.js"></script>
+
+  <!-- zenscroll for dynamic smooth scrolling -->
+  <script src="./js/zenscroll-min.js"></script>
+  <script type="text/javascript">
+    var defaultDuration = 777 // ms
+    var edgeOffset = 70 // px Change offset to account for navbar
+    zenscroll.setup(defaultDuration, edgeOffset);
+  </script>
+
+  <!-- responsive_tooltip for custom, mobile friendly tooltips (also requires responsive_tooltip.css)-->
+  <script src="./js/responsive_tooltip.js"></script>
+
+  <!-- Modal images (also requires modal_img.css) -->
+  <script src="./js/modal_img.js"></script>
+
+  <!-- Small script to temporarily highlight reference on target -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('a.ref[href*="#"]').click(function(){
+      $($(this).attr("href")).effect("highlight", {}, 5000); //Default colour (yellowish)
+      });
+    });
+    $(document).ready(function(){
+      $('a.ref_modal[href*="#"]').click(function(){
+      $($(this).attr("href")).effect("highlight", {}, 5000); //Default colour (yellowish)
+      });
+    });
+  </script>
+</body>
+</html>
