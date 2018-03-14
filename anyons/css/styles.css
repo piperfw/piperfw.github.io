@@ -32,10 +32,11 @@ body {
         max-width: 10px; 
  }
 /*Shift drop-down menu so doesn't hide title*/
-.dropdown-menu {
+/*Removing as causes slight issue on mobile devices*/
+/*.dropdown-menu {
 	left: -50%;
 	right: auto;
-}
+}*/
 
 
 /*
