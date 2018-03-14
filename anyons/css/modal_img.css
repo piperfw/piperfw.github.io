@@ -64,12 +64,12 @@
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
+    width: 90%;
     max-width: 700px;
 }
 /*Specific settings for fig2/3 modals*/
 #modal_img2 {
-    max-width: 100%;
+    max-width: 90%;
 }
 #modal_img3 {
     max-width: 80%;
@@ -141,7 +141,7 @@
 */
 
 /*On large screens reduce size of third modal slightly*/
-/*This causes a slight 'jolt' when re-sizing but savse user of large device having to scroll (assuming 1920x1080)*/
+/*This causes a slight 'jolt' when re-sizing but saves user of large device having to scroll (assuming 1920x1080)*/
 @media only screen and (min-width: 1200px) {
     #modal_img3 {
         max-width: 60%;
@@ -158,6 +158,7 @@
         height: auto;
         width: 100%;
         margin: 0px;
+        padding: 0px;
     }
     .close {
         display: none;
