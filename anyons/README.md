@@ -1,5 +1,7 @@
 A webpage prepared for the module: LH Current Topics in Theoretical Physics.
 
+View at https://piperfw.github.io/anyons/
+
 ### Notes
 -----
 - Tested in Chrome (65) only
