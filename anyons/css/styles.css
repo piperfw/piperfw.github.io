@@ -38,6 +38,14 @@ body {
 	right: auto;
 }*/
 
+/*Prevent overflow of dropdown on small screens*/
+@media only screen and (max-width: 700px){
+.dropdown {
+	max-width: 100%;
+	height: auto;
+}
+}
+
 
 /*
 ===== Title (jumbotron) ======
