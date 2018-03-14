@@ -72,8 +72,7 @@
     max-width: 100%;
 }
 #modal_img3 {
-    max-width: 60%;
-    /*width: auto;*/
+    max-width: 80%;
 }
 
 /* Caption of Modal Image */
@@ -94,8 +93,9 @@
     max-width: 80%;
 }
 #caption3 {
-    max-width: 60%;
+    max-width: 80%;
 }
+
 
 /* Add Animation for modal and all captions*/
 .modal-content, #caption1, #caption2, #caption3{    
@@ -134,10 +134,37 @@
     cursor: pointer;
 }
 
-/* 100% Image Width on Smaller Screens - TEST THIS*/
+
+
+/*
+===== Device specific =====
+*/
+
+/*On large screens reduce size of third modal slightly*/
+/*This causes a slight 'jolt' when re-sizing but savse user of large device having to scroll (assuming 1920x1080)*/
+@media only screen and (min-width: 1200px) {
+    #modal_img3 {
+        max-width: 60%;
+    }
+    #caption3 {
+        max-width: 60%;
+    }
+}
+/* On small devices increase 2/3rd caption sizes and 3rd modal image size*/
+/*Also remove close button as gets in the way (tap to close intuitive here)*/
 @media only screen and (max-width: 700px){
-    .modal-content, #caption2, #caption3 {
+    .modal-content, #caption2, #caption3, #modal_img3 {
+        max-width: 100%;
+        height: auto;
         width: 100%;
         margin: 0px;
     }
+    .close {
+        display: none;
+    }
+    /*Alt: if wish to keep .close add this tweak to 3rd img for it to display correctly (overlap with .close)*/
+/*    #modal_img3 {
+        margin-right:-100px;
+        position: relative;
+    }*/
 }
