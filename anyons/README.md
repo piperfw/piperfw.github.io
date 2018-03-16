@@ -9,7 +9,7 @@ View at https://piperfw.github.io/anyons/
 
 ### Know Issues ('feautres')
 ---
-- Horizontal scrolling may be necessary on small devices due to fixed width of displayed equations (can always zoom out)
-- Small glitch with figure 2 modal on small devices if scrollled up/down (black bar appears; repeat movement to remove)
+- Small glitch with figure 2 modal on mobile devices if background scrolled (agressively)
+when modal is displayed (continue movements and it vanishes). Unknown cause.
 
 Questions, suggestions and comments: Anyonswebpage@gmail.com
