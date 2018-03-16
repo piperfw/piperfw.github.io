@@ -85,6 +85,25 @@ body {
 
 }
 
+/*Containers for displayed math - scrollable on small devices*/
+.math_container, .math_container_tall, .math_container_short {
+	padding: 0px;
+	width:inherit;
+	overflow: auto;
+}
+.math_container {
+	margin-top: -16px;
+	margin-bottom: 4px;
+}
+.math_container_tall  {
+	margin-top: -10px;
+	margin-bottom: 0px;
+}
+.math_container_short {
+	margin-top: -24px;
+	margin-bottom: 0px;
+}
+
 /*
 ===== Figures =====
 */

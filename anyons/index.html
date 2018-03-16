@@ -153,9 +153,13 @@
         </p>
         <p>
          Denoting the position of the particle by \(\boldsymbol{r}\), the governing Lagrangian is
+       </p>
+       <div class="math_container">
          \[
          \mathcal{L} = \frac{1}{2}m\boldsymbol{\dot{r}}^2+ \frac{q}{c}\boldsymbol{\dot{r}}\cdot\boldsymbol{A}
          \] 
+       </div>
+       <p>
          Here \(\boldsymbol{A}(\boldsymbol{r})\) is a vector potential for \(\boldsymbol{B}\); 
          \(\nabla \wedge \boldsymbol{A}=\boldsymbol{B}\). The direction and axial symmetry of \(\boldsymbol{B}\)
          mean that \(\boldsymbol{A}=A_{\varphi}(\rho)\boldsymbol{\hat{\varphi}}\), where
@@ -164,25 +168,31 @@
         </p>
         <p>
          To obtain the associated Hamiltonian we need the canonical momentum
+       </p>
+       <div class="math_container">
          \[
              \boldsymbol{p}_c = \frac{\partial \mathcal{L}}{\partial \boldsymbol{\dot{r}}} 
              = m\boldsymbol{\dot{r}}+ \frac{q}{c}\boldsymbol{A},
          \]
+       </div>
         which differs from the familiar mechanical momentum \(m\boldsymbol{\dot{r}}\) by virtue of
         \(\boldsymbol{A}\). Then
-        \[
-            \mathcal{H}(\boldsymbol{r},\boldsymbol{p}_c)
+        </p>
+        <div class="math_container">
+          \[ \mathcal{H}(\boldsymbol{r},\boldsymbol{p}_c)
             =\boldsymbol{p}_c\cdot\boldsymbol{\dot{r}}-\mathcal{L}=\frac{1}{2}m\boldsymbol{\dot{r}}^2 
             = \frac{1}{2m}\left(\boldsymbol{p}_c-\frac{q}{c}\boldsymbol{A}\right)^2
         \]
-        </p>
-        Moving to a quantum setting, the relevant Schr&ouml;dinger equation is, in the coordinate representation,
+        </div>
         <p>
+        Moving to a quantum setting, the relevant Schr&ouml;dinger equation is, in the coordinate representation,
+        </p>
+        <div class="math_container">
         \[
            \hat{H} \psi(\boldsymbol{r}) = \frac{1}{2m}\left(i\hbar \nabla + 
            \frac{q}{c}\boldsymbol{A}\right)^2 \psi(\boldsymbol{r}) = E \psi(\boldsymbol{r})
         \]
-        </p>
+        </div>
         <p>
           This may be solved using separation of variables, aided by the fact that \(\nabla \cdot \boldsymbol{A}=0\)
           for our solenoid configuration. Of interest is that the <em>angular</em> part of the solution has the
@@ -192,12 +202,16 @@
          Next we appeal to the rotational invariance of \(\mathcal{H}\) about the \(z\)-axis: the <em>canonical</em>
          orbital angular momentum along this axis, \(\ell_c=\left[\boldsymbol{r}\wedge \boldsymbol{p}_c\right]_z\),
          is a constant of motion. With \(\boldsymbol{p}_c\) as above,
-         \[
+        </p>
+        <div class="math_container">
+          \[
              \ell_c=\left[\boldsymbol{r}\wedge m\boldsymbol{\dot{r}} + \boldsymbol{r}\wedge
               \frac{q}{c}\boldsymbol{A}\right]_z = \ell_z + \frac{q\Phi}{2\pi c}
-         \]
+          \]
+        </div>
+        <p>
          where \(\ell_z\) is the <em>mechanical</em> angular momentum.
-       </p>
+        </p>
       </div>
       <div class="col-lg-6">
         <p>
@@ -207,18 +221,25 @@
        </p>
        <p>
          It follows that the mechanical angular momentum has the spectrum
+       </p>
+        <div class="math_container_tall">       
          \[
           \ell_z = \hbar \left(m - \frac{q\Phi}{hc}\right), \qquad m \in \mathbb{Z}
          \]
+       </div>
+       <p>
          In a subtle twist, it is this angular momentum, and not \(\ell_c\), that is the relevant quantity when
          describing phenomenon local to the cyon; Goldhaber and Mackenzie provided a complete argument for this
          several years after  Wilczek's original paper <a class="ref" href="#goldhaber88"><span class="ref"></span></a>. As a result, it is appropriate to
          identify the intrinsic angular momentum or <em>spin</em> of the cyon as the value of \( \ell_z\) 
          when \(m=0\) (units \(\hbar\)):
+       </p>
+       <div class="math_container">
          \[
           s = \left.\frac{\ell_z }{\hbar}\right\rvert_{m=0} = -\frac{q\Phi}{hc} 
            \tag{\(\dagger\)}\label{cyon_spin}
          \]
+       </div>
          We see that, in general, \(s\) is neither integer nor half-integer.
        </p>
        <!-- Wilczek photograph (in column) -->
@@ -267,19 +288,25 @@
         <p>
            In particular, the pair found that the wave function of a non-relativistic charged particle moving around
            a <em>closed</em> path \(\Gamma\) in space-time acquires a phase
+        </p>
+        <div class="math_container_short">
            \[
            -2\pi i\frac{q}{h}\oint_\Gamma\left( dt  \phi-  d\boldsymbol{r} \cdot\frac{\boldsymbol{A}}{c} \right) 
            \tag{\(\ddagger\)}
            \]
+        </div>
+        <p>
            From this result it is a short step to the fractional statistics of the charged particle-flux system
            described in the previous section: Consider a full revolution in space (\(dt=0\)) of the charge around
            the flux-tube, which has localised field \(\boldsymbol{B}=\Phi \delta(x)\delta(y) \boldsymbol{\hat{z}}\).
            Using Stokes' theorem, expression \((\ddagger)\) gives
+        </p>
+        <div class="math_container">
            \[
             -2\pi i\frac{q}{h c}\oint_\Gamma d\boldsymbol{r} \cdot \boldsymbol{A}=-2\pi i\frac{q}{hc}\iint dxdy\,
             B = -2\pi i \frac{q \Phi}{h c} 
            \]
-        </p>
+        </div>
       </div>
       <div class="col-lg-6">
        <p>
