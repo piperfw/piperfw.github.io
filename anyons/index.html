@@ -17,9 +17,6 @@
   <!-- Main stylesheet for this webpage -->
   <link rel="stylesheet" href="./css/styles.css">
 
-  <!-- Custom responsive tooltip (also requires responsive_tooltip.js) -->
-  <link rel="stylesheet" href="./css/responsive_tooltip.css">
-
   <!-- Stylesheet for modal images (also requires modal_img.js) -->
   <link rel="stylesheet" href="./css/modal_img.css">
 </head>
@@ -97,15 +94,11 @@
         In two dimensions, however, this is not the whole story. In fact, in \(d=2\) there are not only fermions and
         bosons, but particles with  <em>any</em> statistics in between. Such particles are known as <em>anyons</em>
         and are the subject of this poster. The prototypical anyonic system &#45; the 'cyon' &#45; is examined
-        below. In particular, the fractional nature of its spin 
-        (<a title="Go to: The Cyon System" href="#the_cyon_system"  rel="tooltip">The Cyon System</a>)
-        and statistics
-        (<a title="Go to: The Aharonov-Bohm Effect" href="#the_aharanov_bohm_effect"  rel="tooltip">The
-        Aharonov-Bohm Effect</a>). Two
-        dimensional systems are prevalent in condensed matter physics, hence the potential for anyons to be realised
-        is great. Here we consider the relevance of anyons to the fractional hall effect
-        (<a title="Go to: The Fractional Quantum Hall Effect" href="#the_fractional_quantum_hall_effect"
-        rel="tooltip">The Fractional Quantum Hall Effect</a>).
+        below. In particular, the fractional nature of its spin (<a href="#the_cyon_system">The Cyon System</a>) and
+        statistics (<a href="#the_aharanov_bohm_effect">The Aharonov-Bohm Effect</a>). Two dimensional systems are
+        prevalent in condensed matter physics, hence the potential for anyons to be realised is great. Here we
+        consider the relevance of anyons to the fractional hall effect 
+        (<a href="#the_fractional_quantum_hall_effect">The Fractional Quantum Hall Effect</a>).
         </p>
         <nav aria-label="Section Navigation">
           <ul class="pagination justify-content-center">
@@ -114,23 +107,23 @@
           </ul>
         </nav>
       </div>
-    </div>
-  <!-- 'Box' figure -->
-  <div id="box1">
-    <a class="anchor" id="box1_anchor"></a>
-      \[\text{Fermions } (\lambda = 1) \qquad \ \text{Bosons } (\lambda = 0)\]
-      \[\phantom{0}|ab\rangle = - |ba \rangle  \qquad \qquad |ab\rangle = + |ba \rangle\]
-    <div class="caption">
-      <p><b>Box 1:</b>
-      Two identical particles. If one particle is in a state described by the label \(a\), and the second in a state
-      described by \(b\), the statistics \(\lambda\) determines the phase factor \(\exp(i\lambda \pi)\) associated
-      with the exchange \(a \leftrightarrow b\). For fermions, setting \(b=a\) gives \(|aa\rangle=-|aa\rangle\), which
-      implies that \(|aa\rangle=0\); two identical fermions cannot be in the same quantum state (Pauli exclusion
-      Principle). Bosons suffer no such restriction.
-      </p>
-    </div>
-  </div> <!-- /box -->
-  <hr>
+    </div> <!-- /row -->
+    <!-- 'Box' figure -->
+    <div id="box1">
+      <a class="anchor" id="box1_anchor"></a>
+        \[\text{Fermions } (\lambda = 1) \qquad \ \text{Bosons } (\lambda = 0)\]
+        \[\phantom{0}|ab\rangle = - |ba \rangle  \qquad \qquad |ab\rangle = + |ba \rangle\]
+      <div class="caption">
+        <p><b>Box 1:</b>
+        Two identical particles. If one particle is in a state described by the label \(a\), and the second in a state
+        described by \(b\), the statistics \(\lambda\) determines the phase factor \(\exp(i\lambda \pi)\) associated
+        with the exchange \(a \leftrightarrow b\). For fermions, setting \(b=a\) gives \(|aa\rangle=-|aa\rangle\),
+        which implies that \(|aa\rangle=0\); two identical fermions cannot be in the same quantum state (Pauli
+        exclusion Principle). Bosons suffer no such restriction.
+        </p>
+      </div>
+    </div> <!-- /box -->
+    <hr>
   </div> <!-- /container -->
 
   <!-- The Cyon System -->
@@ -217,7 +210,8 @@
         <p>
          Now, the canonical angular momentum is <em>always</em> associated with the operator 
          \(\displaystyle -i\hbar \frac{\partial}{\partial \varphi}\), and so is quantised as \(\hbar m\) when
-         acting upon the angular dependence  \(\exp(im\varphi)\) of our solution <a class="ref" href="#lenda"><span class="ref"></span></a>. 
+         acting upon the angular dependence  \(\exp(im\varphi)\) of our solution 
+         <a class="ref" href="#lenda"><span class="ref"></span></a>. 
        </p>
        <p>
          It follows that the mechanical angular momentum has the spectrum
@@ -230,7 +224,8 @@
        <p>
          In a subtle twist, it is this angular momentum, and not \(\ell_c\), that is the relevant quantity when
          describing phenomenon local to the cyon; Goldhaber and Mackenzie provided a complete argument for this
-         several years after  Wilczek's original paper <a class="ref" href="#goldhaber88"><span class="ref"></span></a>. As a result, it is appropriate to
+         several years after  Wilczek's original paper 
+         <a class="ref" href="#goldhaber88"><span class="ref"></span></a>. As a result, it is appropriate to
          identify the intrinsic angular momentum or <em>spin</em> of the cyon as the value of \( \ell_z\) 
          when \(m=0\) (units \(\hbar\)):
        </p>
@@ -260,10 +255,11 @@
          <img class="modal-content" id="img01">
          <div  id="caption1">
          <b>Figure 1:</b>
-         Frank Wilczek in 2007 <a class="ref_modal" href="#zirkel07">[5]</a>. The first to identify the fractional nature of the angular momentum
+         Frank Wilczek in 2007 <a class="ref_modal" href="#zirkel07">[5]</a>. The first to identify the fractional
+         nature of the angular momentum
          of the cyon, Frank later coined the  term 'anyons' to humorously suggest that  'anything goes' for particles
          with unusual  statistics <a class="ref_modal" href="#wilczek18">[6]</a>.</div>
-       </div>
+       </div> <!-- /modal1 -->
        <!-- Navigation buttons ('pagination') -->
        <nav aria-label="Section Navigation" class="section_nav">
          <ul class="pagination justify-content-center">
@@ -271,10 +267,10 @@
            <li class="page-item"><a class="page-link" href="#the_aharanov_bohm_effect">Next Section</a></li>
          </ul>
        </nav>
-      </div> <!-- col -- >
-    </div> <!-- row -->
-  </div>  <!-- container -->
-  <hr>
+      </div> 
+    </div> <!-- /row -->
+    <hr>
+  </div>  <!-- /container -->
   <!-- The aharanov-bohm effect -->
   <div id="the_aharanov_bohm_effect"  class="container">
     <div class="row">
@@ -328,8 +324,8 @@
            <li class="page-item"><a class="page-link" href="#the_fractional_quantum_hall_effect">Next Section</a></li>
          </ul>
        </nav>
-      </div> <!-- col -->
-    </div>  <!-- row -->
+      </div> 
+    </div>  <!-- /row -->
     <div id="img2_container" class="text-center">
         <a class="anchor" id="img2_anchor"></a>
         <img src="./images/anyons_fig2.svg" alt="Aharanov-Bohm experiement schematic" id="img_fig2">
@@ -339,7 +335,7 @@
            information)
            <a class="ref" href="#aharonov59">[7]</a>.
          </div>
-    </div> <!-- img container -->
+    </div> <!-- /img container -->
     <!-- modal 2 -->
     <div id="modal2" class="modal">
       <span class = "close" id="span2">&times;</span>
@@ -355,9 +351,9 @@
         experiment and confirmed Aharonov and Bohm's prediction <a class="ref_modal" href="#chambers1960">[8]</a>,
         since known as the <em>Aharonov–Bohm effect.</em>
       </div>
-    </div>
-   <hr>
-  </div>  <!-- container -->
+    </div> <!-- /modal2 -->
+    <hr>
+  </div>  <!-- /container -->
   <!-- The fractional QHE -->
   <div id="the_fractional_quantum_hall_effect"  class="container">
     <div class="row">
@@ -417,8 +413,8 @@
        <b>Figure 3:</b> 
        Schematic illustration of the <em>integer</em> Quantum Hall effect (click for further information).      
       </div>
-      </div> <!-- img container -->
-      <!-- The Modal -->
+      </div> <!-- /img container -->
+      <!-- modal3 -->
       <div id="modal3" class="modal">
         <span class = "close" id="span3">&times;</span>
         <img class="modal-content" id="modal_img3">
@@ -433,9 +429,9 @@
           \(\nu^{-1} \propto B_\bot\) according to the theory). In the fractional QHE, small plateaux also develop at
           fractional \(\nu\).
         </div>
-      </div>
+      </div> <!-- /modal3 -->
     <hr>
-  </div> <!-- container -->
+  </div> <!-- /container -->
   <!-- References -->
   <div id="references"  class="container">
       <h2>References</h2>
@@ -454,9 +450,9 @@
         <li><a id="willett13">R. Willett <em>et al.</em>, Phys. Rev. Lett.  <b>111</b>, 186401 (2013).</a></li>
       </ul>
     <hr>
-  </div> <!-- container -->
+  </div> <!-- /container -->
   <!-- About this page -->
-  <div class="ref" id="about_this_page"  class="container">
+  <div id="about_this_page"  class="container">
     <div class="row">
       <div class="col-lg-12">
       <h2>About This Page</h2>
@@ -470,10 +466,10 @@
         <code style="color:black; font-size:16px;">Anyonswebpage&#64;gmail.com</code>
       </p>
       </div>
-    </div>
+    </div>    <!-- /row -->
     <hr>
-  </div>
-  </main>
+  </div>    <!-- /container -->
+  </main>  <!-- /main -->
   <!-- Footer -->
   <div class="footer-copyright py-3 text-center">
       © 2018 Piper Fowler-Wright 
@@ -481,7 +477,7 @@
 
   <!-- js at end of page for performance reasons -->
   <!-- Order is important (must load libraries before scripts!) -->
-  <!-- non-slim jQuery for various plugins (e.g. a dependency of zenscroll,responsive_tooltip) -->
+  <!-- non-slim jQuery for various plugins (dependency of zenscroll) -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   <script src="./js/jquery.min.js"></script>
   <!-- Bootstrap core JavaScript -->
@@ -501,9 +497,6 @@
     var edgeOffset = 70 // px Change offset to account for navbar
     zenscroll.setup(defaultDuration, edgeOffset);
   </script>
-
-  <!-- responsive_tooltip for custom, mobile friendly tooltips (also requires responsive_tooltip.css)-->
-  <script src="./js/responsive_tooltip.js"></script>
 
   <!-- Modal images (also requires modal_img.css) -->
   <script src="./js/modal_img.js"></script>
