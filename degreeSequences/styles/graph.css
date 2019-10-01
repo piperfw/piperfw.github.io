@@ -1,0 +1,97 @@
+
+.cy-disp {
+  width: 100%;
+  height: 250px;
+  display: block;
+}
+.cy-widget {
+  width: 100%;
+  height: 350px;
+  display: block;
+  background-color: beige;
+  /*background-color: LightYellow;*/
+  /*background-color: LemonChiffon;*/
+border: 1px solid black;
+}
+.cy-widget > p {
+	position: absolute;
+  width: 100%;
+  padding-left: 3px;
+  /*If sequence too long simply hide (prevent wrapping onto two lines) and add ellipses*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /*Bring to top so can hover...*/
+  z-index:1;
+}
+
+/*.cy > p:hover {
+  white-space: normal;
+  word-break: break-all;
+  overflow: visible;
+}*/
+
+.btn {
+  border-radius: 0;
+}
+.btn:active:focus {
+  outline: none;
+}
+.btn-div .btn {
+  display: inline-block;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: black;
+}
+.btn-div .btn:not(:last-child){
+  border-right: none;
+}
+.button {
+  color: black;
+  background-color: #e7e7e7;
+  border: 1px solid black;
+  /*border-top: none;*/
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  /*font-size: 16px;*/
+}
+.btn-div > .button {
+  border-top: none;
+}
+.btn-div2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-div2 > .button {
+  width: 100px;
+}
+.button:not(:last-child){
+  border-right: none;
+}
+.button:hover {
+  background-color: #D3D3D3; /* Green */
+  /*background-color: #4CAF50; /* Green */*/
+  color: white;
+}
+.button:focus {
+  outline: none;
+}
+/*#disp2-sequence-p {
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+}*/
+.disabled, .disabled:hover {
+  background-color: #e7e7e7;
+  opacity: 0.5;
+}
+#cy3 > p {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+}

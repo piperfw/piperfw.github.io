@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="What is the degree sequence of a graph and the graph realisation problem.">
+<meta content="Piper Fowler-Wright" name=author>
+<meta name="keywords" content="Degree sequence, Graph Theory, Havel Hakimi, Vertex, Edge">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- Main stylesheet for html elements -->
+<link rel="stylesheet" href="styles/styles.css"/>
+<!-- Stylesheet for Cytoscape containers -->
+ <link rel="stylesheet" href="styles/graph.css">
+<title>Degree Sequences</title>
+</head>
+<body data-spy="scroll" data-target="#scrollSpy">
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1 class="no-anchor">Degree sequences & the graph realisation problem</h1>
+    <p>An interactive introduction to aspects of graph theory using the Cytoscape.js library.</p>
+  </div>
+</div>
+
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+			<!-- hidden-sm-down -->
+			<div class="col-md-3 d-none d-md-block" id="sidebar">
+		      <nav id="scrollSpy" class="sticky-top">
+		      	<ul class="nav nav-pills">
+      	          <li class="nav-item">
+      	            <a class="nav-link" href="#introduction">Introduction</a>
+<!--       	            <ul class="nav nav-pills">
+      	            	<li class="nav-item">
+      	            		<a class=nav-link href="#introduction-try-it">Try it yourself</a>
+      	            	</li>
+      	            </ul> -->
+      	          </li>
+      	          <li class="nav-item">
+      	            <a class="nav-link" href="#graph-realisation">Graph Realisation</a>
+      	          </li>
+      	          <li class="nav-item">
+      	            <a class="nav-link" href="#ergos-gallai">Erd&odblac;s-Gallai</a>
+      	          </li>
+      	          <li class="nav-item">
+      	            <a class="nav-link" href="#havel-hakimi">Havel-Hakimi</a>
+      	          </li>
+		      	</ul>
+		      </nav>
+			</div>
+	<div class="col-xs-12 col-sm-12 col-md-9">
+	<h2 id="introduction">Introduction</h2>
+	<p>
+		Given a <a aria-describedby="footnote-label" href="#fn-simple" id="fn-simple-ref">graph</a>
+		\(G=(V,E)\) comprising a set of vertices \(V\) and edges \(E\), the <b>degree</b> \(d(v)\) of a vertex
+		<!-- \(v\in G\) is the number neighbours of \(v\); equivalently, the number of edges incident to \(v\).  -->
+		\(v\in V\) is the number of edges incident to \(v\); that is, the number of neighbours of \(v\).
+		<!-- \(v\in V\) is the number vertices adjacent to \(v\) or, equivalently, the number of edges incident to \(v\).  -->
+		<!-- \(v\in V\) is the number neighbours of \(v\) or, equivalently, the number of edges incident to \(v\).  -->
+		<!-- The <b>degree sequence</b> of \(G\) is then the sequence of degrees of all the vertices in \(G\), -->
+		The <b>degree sequence</b> of \(G\) is then the sequence
+		<!-- often written in ascending order: -->
+		<!-- typically written in descending order: -->
+		<!-- in ascending (or descending) order: -->
+		\[\left(d(v_1),d(v_2),\ldots,d(v_n)\right) \qquad d(v_1)\geq d(v_2) \geq\ldots \geq d(v_n)\]
+		<!-- \[\left(d(v_1),d(v_2),\ldots,d(v_n)\right) \qquad d(v_1)\leq d(v_2) \leq\ldots d(v_n)\] -->
+	</p>
+	<!-- <div id="introduction-try-it"> -->
+		<!-- https://o7planning.org/en/12021/bootstrap-scrollspy-tutorial#a22350327 -->
+		<!-- https://mdbootstrap.com/docs/jquery/navigation/scrollspy/ -->
+<!-- 	<p ><i>Try it yourself.</i>  
+		Use the below widget to create a graph (click to add a node, click successive
+	nodes to create an edge) and check you agree with the stated degree sequence.
+	</p>
+	</div> -->
+	<!-- <p><b>Try it yourself.</b>  -->
+	<p><i>Try it yourself.</i> 
+	Use the below widget to create a graph 
+	<!-- (click anywhere to add a node and click successive nodes to create an edge). -->
+	<!-- Check that you agree with the  degree sequence shown. -->
+	and check you agree with the degree sequence shown.
+	<!-- displayed degree sequence -->
+	<!-- and successive -->
+	<!-- node; click successive -->
+	<!-- In the below widget, click anywhere to add a node and click successive nodes to create an edge. -->
+	<!-- Construct a graph and check you agree with the stated degree sequence. -->
+	</p>
+	<div style="padding-bottom: 40px">
+		<small class="text-muted">
+			Click anywhere to add a vertex and click successive vertices to create an edge.
+		</small>
+		<div class="cy-widget" id="cy1">
+			<p id="wig1-degree-p">Degree Sequence:</p>
+		</div>
+		<div class="btn-div">
+			<button type="button" class="button disabled" id="cy1-btn-rm" disabled>Clear</button><!--
+			--><button type="button" class="button" id="cy1-btn-tl">Toggle Degree Labels</button><!--
+			--><button type="button" class="button" id="cy1-btn-lg">Layout Graph</button>
+		</div>
+	</div>
+	<h2 id="graph-realisation">Graph Realisation</h2>
+	<p>
+		<!-- On the other hand, one may ask whether, given a sequence of non-negative integers, it is possible -->
+		<!-- to construct a graph whose degree sequence coincides with that sequence. -->
+		On the other hand, one may ask whether, for a finite sequence of non-negative integers <!-- (ordered) -->
+		<!-- \(\left(d_1,d_2,\ldots,d_n\right)\), there exists a graph whose degree sequence is \(\left(d_1,d_2,\ldots,d_n\right)\). -->
+		\(\left(d_1,d_2,\ldots,d_n\right)\), there exists a graph with degree sequence \(\left(d_1,d_2,\ldots,d_n\right)\).
+		This is the <b>graph realisation problem.</b>
+	</p>
+	<p>
+		It should be apparent that existence is not guaranteed.
+		For example, \(\left(0,1\right)\)  clearly cannot be the degree sequence of any (simple) graph.
+		<!-- \(\left(0,1\right)\), for example, clearly cannot be the degree sequence of any (simple) graph. -->
+		 We say that  \(\left(0,1\right)\) is <b>non-graphic.</b>	
+		<!-- We call \(\left(0,1\right)\) <b>non-graphic.</b> -->
+		<!-- For example, \(\left(0,1\right)\) clearly cannot be the degree sequence of any (simple) graph, since -->
+		<!-- What can be said more generally?  -->
+		<!-- it would describe a graph with two vertices such that one had no neighbours yet the other had one. -->
+	</p>
+	<p>
+		<!-- What can be said in general? -->
+		<!-- What can we deduce in general? -->
+		<!-- What can we say more generally?  -->
+		Beyond consisting of non-negative integers only, <!-- whose largest value cannot exceed the number of non-negative values -->
+		<!-- a most basic restriction comes from the <b>handshaking lemma</b>. (or degree sum formula) -->
+		<!-- a basic constraint comes in the form of the <b>handshaking lemma</b>. -->
+		a most basic <i>necessary</i> condition for a degree sequence to be graphic
+		comes from the <b>handshaking lemma,</b> which states that the sum of all degrees
+		<!-- a basic constraint is provided by the <b>handshaking lemma,</b> which states that the sum of all degrees -->
+		  <!-- \(\sum_{v\in V}d(v)\), equals twice the total number of edges \(\lvert E \rvert\), and so is necessarily -->
+		  <!-- <i>even.</i> -->
+		<!-- equals twice the number of edges, and thus is <i>even.</i> -->
+		<!-- of the vertices of a graph \(G=(V,E)\) equals twice the number of edges, -->
+		equals twice the number of edges:
+		\[\sum_{v\in V}d(v) = 2 \lvert E \rvert\]
+		Consequently, \(\sum_{v\in V}d(v)\) must be <i>even.</i> 
+		<!-- In particular, we see that \(\sum_{v\in V}d(v)\) must be <i>even.</i>  -->
+		<!-- Thus, \(\sum_{v\in V}d(v)\) must be even -->
+		This allows us to immediately discount the sequence \(\left(3,2,1,1\right)\), for example, <!-- (\(\sum_{v\in V}d(v)=7\)), -->
+		<!-- (\(1+1+2+3=7\)), -->
+		but not \(\left(3,1,1,1\right)\).<!--  The latter is in fact graphic: -->
+		In fact, the latter <i>is</i> graphic:
+		<!-- For example, the sequence \(\left(1,1,2,3\right)\) may be immediately discounted, -->
+		 <!-- as \(1+1+2+3=7\), whereas \(\left(1,1,1,3\right)\) cannot. In fact, \(\left(1,1,1,3\right)\) <i>is</i> graphic: -->
+	</p>
+	<div>
+		<div class="cy-disp" id="cy2"></div>
+	</div>
+	<p> How might we verify this without actually constructing the graph?</p>
+	<!-- <p> How might we verify this without explicitly constructing the graph?</p> -->
+	<h2 id="ergos-gallai">The Erd&odblac;s-Gallai Theorem</h2>
+	<p>
+		The <b>Erd&odblac;s-Gallai theorem</b> provides a solution to the graph realisation problem. <!-- the solution -->
+		<!-- provides a necessary and sufficient condition for a finite sequence of natural numbers to be the degree sequence -->
+		It may be stated as follows:
+		<blockquote>
+			A non-increasing sequence of non-negative integers \(\left(d_1,d_2,\ldots,d_n\right)\) is the representation
+			<!-- natural numbers -->
+			of a graph on \(n\) vertices <i>if and only if</i> \(\sum_{i=1}^n d_i\) is even and
+			\[\sum_{i=1}^k d_i \leq k(k-1) + \sum_{i=k+1}^n \min\left\{d_i,k\right\}\]
+			for each \(k \in \{1,\ldots,n\}\).
+		</blockquote>
+	</p>
+	<!-- <p> For the graphic sequence just considered</p> -->
+	<p>
+		<!-- For the sequence \((3,1,1,1)\) just considered, -->
+		Take the sequence \((3,1,1,1)\). As
+		 \(d_1=3\) and \(d_2=d_3=d_4=1\), at each \(k \in\{1,2,3,4\}\)
+		<!-- we find -->
+		we have \(\min\left\{d_i,k\right\} = 1\) <!-- (\(k+1\leq i \leq 4)\) --> whilst
+		\[
+		\sum_{i=1}^4d_i = 6
+		\]
+		is even. Then
+		\[
+		\begin{align}
+		k=1:\qquad& d_1=3\leq 1(0) + \sum_{i=2}^41 = 3 \\
+		k=2:\qquad& d_1+d_2=4\leq 2(1) + \sum_{i=3}^41 = 4 \\
+		k=3:\qquad& d_1+d_2+d_3=5\leq 3(2) + \sum_{i=4}^4 1 = 7\\[8pt]
+		k=4:\qquad& d_1+d_2+d_3+d_4=6\leq 4(3) = 12,
+		\end{align}
+		\]
+		confirming that this sequence is graphic.
+		<!-- confirms that this sequence is graphic. --> <!-- Remove comma after 12-->
+	</p>
+	<p>
+		<i>Try it yourself.</i> 
+		<!-- Which of the following are graphic? You can use the tool below to check any sequence:-->
+		<!-- You can use the tool below to check any sequence &#8211; just enter the sequence as comma separated list: -->
+		Come up with several sequences and determine whether they are graphic using  the Erd&odblac;s-Gallai theorem.
+		<!-- You can use the below tool to check your answers. -->
+		Use the below tool to check your answers.
+		<!-- The tool below uses the Erd&odblac;s-Gallai theorem to test whether a sequence is graphic. Come up with  -->
+		<!-- some sequences and check that you can correctly determine whether they are graphic using  -->
+	</p>
+	<form class="form-inline" novalidate>
+	<div class="form-row" style="position: relative; margin-bottom: 40px;">
+		<!-- <label for="degree-seq-input" style="margin-right: 10px">Degree Sequence:</label> -->
+		<!-- <input type="text" class="form-control form-control-sm" id="degree-seq-input" style="margin-right: 10px"> -->
+		<!--  -->
+		<!-- <label for="degree-seq-input" class="mr-sm-2" style="margin-bottom: 5px">Degree Sequence:</label> -->
+		<!-- <input type="text" class="form-control form-control-sm mb-2 mr-sm-2" placeholder="3,1,1,1" id="degree-seq-input"> -->
+		<!-- <p class="valid-feedback">Valid.</p> -->
+		<!--  -->
+		<!-- <input type="text" class="form-control form-control-sm mb-2 mr-sm-2" placeholder="3,1,1,1" id="degree-seq-input"> -->
+		<!-- <button type="button" class="button mb-2" id="check-degree-seq-btn">Check</button> -->
+<!--  -->
+		<label for="degree-seq-input" class="mr-sm-2" style="padding-left: 5px">Degree Sequence:</label>
+		<input type="text" class="form-control form-control-sm mr-sm-2" placeholder="3,1,1,1" id="degree-seq-input">
+		<!-- <label for="degree-seq-input" id="degree-seq-result">Graphic</label> -->
+		<div class="valid-tooltip">
+        Graphic
+      	</div>
+		<div class="invalid-tooltip">
+        Non-Graphic
+      	</div>
+	</div>
+	<!-- <small class="text-muted"> Enter a comma separated list </small> -->
+	</form>
+
+	<h2 id="havel-hakimi">The Havel-Hakimi Algorithm</h2>
+<!-- 	<p>
+		While the Erd&odblac;s-Gallai theorem provides an efficient check as to whether a sequence is graphic, 
+		it does not tell you how to go about constructing a graph with that degree sequence given a positive result.
+		In contrast, 
+		the <b>Havel-Hakimi algorithm</b> provides a <i>constructive</i> solution to the graph realisation problem: (in that,)
+		not only does it test whether a degree sequence is graphic, it also provides a means to construct a
+		graph with that degree sequence in the case that it is.
+	</p> -->
+	<!-- <p> -->
+		<!-- While the Erd&odblac;s-Gallai theorem is efficient in checking whether a sequence is graphic,  -->
+		<!-- it does not tell you how to go about constructing a graph with that degree sequence given a positive result. -->
+		<!-- it does not provide a means of constructing a graph with that degree sequence in the case of a positive result. -->
+		<!-- not provide a means of constructing a graph with that degree sequence in the case of a positive result. The -->
+		<!-- In contrast, the <b>Havel-Hakimi algorithm</b> is a <i>constructive</i> solution to the graph realisation problem, -->
+		<!-- testing whether a degree sequence is graphic <i>and</i> providing a means to construct a graph -->
+		<!-- with that degree sequence in the case that it is. -->
+	<!-- </p> -->
+	<p>
+		While the Erd&odblac;s-Gallai theorem provides an efficient test as to whether a sequence is graphic, <!-- check -->
+		it does not provide a means of constructing a graph with that degree sequence in the case of a positive result.
+		<!-- it does not tell you how to go about constructing a graph with that degree sequence given a positive result. -->
+		In contrast, 
+		the <b>Havel-Hakimi algorithm</b> provides a <i>constructive</i> solution to the graph realisation problem.
+		<!-- The essence of the algorithm is the following theorem -->
+		It is a recursive algorithm based on the following theorem: <!-- fact -->
+		<blockquote>
+		A non-increasing sequence \(S=\left(d_1,d_2,\ldots,d_n\right)\) of non-negative integers is graphic 
+		<i>if and only if</i> the sequence 
+		\[S'=\bigl(\underbrace{d_2-1,d_3-1,\ldots,d_{d_1+1}-1}_{d_1 \ \text{terms}},d_{d_1+2},\ldots,d_n\bigr)\]
+		comprises non-negative integers and (when sorted) is graphic.
+		</blockquote>
+	</p>
+	<!-- <p> -->
+		<!-- As vertices with 0 degree (unconnected components) have no influence on whether graphic, convenient to remove... -->
+	<!-- </p> -->
+	<p>
+		<!-- With this knowledge -->
+		Equipped with this theorem, <!-- fact -->
+		the procedure to check whether a given sequence
+		\(S_0=\left(d_1,d_2,\ldots,d_n\right)\) is graphic is straightforward:
+</p>	
+<p>
+	<ol>
+		<li>
+			Remove the first element \(d_1\) of \(S_0\) and subtract 1 from the next \(d_1\) elements, <!-- , if possible, -->
+				<!-- and sort the resulting elements into a non-increasing sequence. This is \(S_1\).  -->
+				<!-- before --> sorting the remaining elements to form a non-increasing 
+				<a aria-describedby="footnote-label" href="#fn-zeros" id="fn-zeros-ref">sequence</a> \(S_1\). 
+				If this is not possible (there are fewer than \(d_1\) terms in the truncated sequence) or \(S_1\)
+				contains a negative integer, \(S_1\), and therefore \(S_0\), is non-graphic. 
+				<!-- As zeros are of no -->
+				<!-- consequence as to whether a sequence is graphic (unconnected vertices), it is convenient to -->
+				<!-- remove all such terms from \(S_1\). -->
+		</li>
+		<li>
+			<!-- Repeat with the first element of \(S_1\) to generate \(S_2\) and then \(S_3,S_4,\ldots\). -->
+			Repeat to generate \(S_2,S_3,\ldots\). If at any stage there are too few terms to subtract 1 from,
+			or a non-negative integer is encountered, the original sequence is non-graphic.
+			Otherwise, after at most \(n-1\) steps, a sequence \(S_F\) of zeros will result.
+			 <!-- As \(S_F\) is clearly graphic (a collection of unconnected vertices), so is \(S_0\). -->
+			 As \(S_F\) clearly has a graphical representation (a collection of 1 or more unconnected vertices), so does \(S_0\).
+			<!-- sequence of the form \(S_F=(1,1,0,\ldots,0)\) will result. As \(S_F\) is clearly graphic, so is \(S_0\). -->
+		</li>
+	</ol>			
+</p>
+<p>						<!-- Graphically, the procedure corresponds to attaching -->
+			Graphically, in the \(i^{\text{th}}\) iteration we attach
+			the vertex with the greatest degree \(d(v_{\text{max}})\) to the \(d(v_{\text{max}})\) vertices of
+			next greatest degree, repeating until we either cannot 'exhaust' a particular vertex (i.e. it has a degree larger than the 
+			sum of degrees of the remaining vertices) and the algorithm fails to produce a graph, or we reach a situation where
+			none of remaining vertices require further neighbours <!-- incident edges --> <!-- any further neighbours -->
+			(\(S_F=(0,\ldots,0)\)), and a graph has been completed.
+			<!-- there are two vertices left of degree 1 (\(S_{F}=(1,1,0,\ldots,0\))), which we connect, completing a graph -->
+			<!-- with degree sequence \(S_0\). -->
+			<!-- Can clearly up to n-1 steps -->
+	</p>
+	<p>
+		<!-- In fact, in each iteration one is free to remove <i>any</i> one of the \(d_i\), provided it is -->
+		In fact, in each iteration one is free to chose <i>any</i> one of the \(d_i\) to be removed, provided it is
+		<!-- In fact, in each iteration one is free to chose <i>any</i> of the \(d_i\) as that to be removed, provided it is -->
+		still the <i>greatest</i> \(d_i\) terms that are decremented,
+		with different choices at each step producing a variety of graphical representations.
+		<!-- still the <i>greatest</i> \(d_i\) terms that are decremented. -->
+		<!-- Different choices at each step will produce a  -->
+		<!-- variety of graphical representations for the given degree sequence.  -->
+		 <!-- , in general. (many will be isomorphic) -->
+	</p>	
+		<p>
+		<!-- This process is best demonstrated. -->
+		As a demonstration, consider the sequence \(S_0=\left(3,2,2,1,1,1\right)\).
+		<!-- which you can check is graphic using erdgos -->
+		<!-- (note: the sum of degrees is even). -->
+		 The labels \(v_0,\ldots,v_5\) will be used to keep track of the 
+		vertices as in
+		<!-- vertices as shown: -->
+		\[S_0 =(\overset{v_0}{3},\overset{v_1}{2},\overset{v_2}{2},\overset{v_3}{1},\overset{v_4}{1},\overset{v_5}{1})\]
+		 <!-- The widget below illustrates the following steps -->
+		 <!-- The following steps are illustrated in the widget below. -->
+		<ol>
+			<li>
+				Attach \(v_0\) to \(v_1\), \(v_2\) and \(v_3\). Remember to sort the truncated sequence:
+				\[S_1=(\overset{v_1}{1},\overset{v_2}{1},\overset{v_3}{0},\overset{v_4}{1},\overset{v_5}{1} )\to (\overset{v_1}{1},\overset{v_2}{1},\overset{v_4}{1},\overset{v_5}{1},\overset{v_3}{0})\]
+			</li>
+			<li> 
+				Attach \(v_1\) to \(v_2\):
+				\[S_2=(\overset{v_2}{0},\overset{v_4}{1},\overset{v_5}{1},\overset{v_3}{0})
+				\to(\overset{v_4}{1},\overset{v_5}{1},\overset{v_2}{0}, \overset{v_3}{0})\]
+			</li>
+			<li>
+				Finally, join \(v_4\) and \(v_5\):
+				\[S_3=(\overset{v_5}{0},\overset{v_2}{0},\overset{v_3}{0})=S_F\]
+			</li>
+		</ol>
+		The below widget illustrates each step:
+		<!-- The following widget illustrates each of the above steps: -->
+	</p>
+	<div style="padding-bottom: 40px">
+		<div class="cy-disp" id="cy3">
+			<p>\(S_0 =(\overset{v_0}{3},\overset{v_1}{2},\overset{v_2}{2},\overset{v_3}{1},\overset{v_4}{1},\overset{v_5}{1})\)</p>
+			<p>\(S_1 = (\overset{v_1}{1},\overset{v_2}{1},\overset{v_4}{1},\overset{v_5}{1},\overset{v_3}{0})\)</p>
+			<p>\(S_2 = (\overset{v_4}{1},\overset{v_5}{1},\overset{v_2}{0}, \overset{v_3}{0})\)</p>
+			<p>\(S_3=(\overset{v_5}{0},\overset{v_2}{0},\overset{v_3}{0})\)</p>
+		</div>
+		<div class="btn-div2">
+			<button type="button" class="button disabled" id="cy3-btn-prev" disabled>Previous</button><!--
+			--><button type="button" class="button" id="cy3-btn-next">Next</button>
+		</div>
+	</div>
+	<p>
+		Observe that the graph produced is not <i>connected</i> (no path exists between \(v_4\) and \(v_0\), for example).
+		As mentioned above, it is not necessary to select the greatest term for removal with each iteration.
+		<!-- As mentioned above, one does not have to remove the largest term each time.  -->
+		It turns out that if instead the <i>least</i> term is chosen each time, the resulting
+		<!-- It turns out that if instead the <i>least</i> term is removed each time, the resulting -->
+		<!-- It turns out that if instead the <i>least</i> term is removed, the resulting -->
+		graph will always be connected <i>if</i> a connected realisation exists.
+		<!-- graph will always be connected; that is, a path along edges will exist between any two vertices, -->
+		<!-- <i>if</i> a connected realisation exists. -->
+		<!-- Observe that the resulting graph is not connected.  -->
+		<!-- Observe that the constructed graph is not connected.  -->
+		<!-- It turns out that if we choose the vertex with the <i>smallest</i> -->
+		<!-- non-zero degree \(d_\text{min}\) in each iteration,-->
+			<!--  the Havel-Hakimi algorithm will always  --> 
+		<!-- a connected graph will always result, provided the starting sequence is graphic, of course. -->
+		<!-- footnote still have to subject 1 from the  \(d_\text{min}\) vertices with the <i>greatest</i> remaining degree. -->
+	</p>
+	<p>
+		<i>Try if for yourself.</i> 
+		The below widget performs the Havel-Hakimi algorithm to produce a connected graph from any degree sequence. <!-- valid -->
+		Come up with a valid degree sequence and see if you can 
+		<!-- Come up with a degree sequence (e.g. using the previous widget) and see if you can  -->
+		<!-- perform the Havel-Hakimi -->
+		match its output.
+		<!-- a connected graph from any valid degree sequence -->
+		<!-- Perform the Havel-Hakimi algorithm to produce a connected graph from any valid degree sequence you can -->
+		<!-- think of, and check your graph against the output of the below width. -->
+	</p>
+	<div>
+		<div class="cy-disp" id="cy4"></div>
+	</div>
+	<form class="form-inline" novalidate>
+	<div class="form-row" style="position: relative;">
+		<label for="degree-seq-input2" class="mr-sm-2">Degree Sequence:</label>
+		<input type="text" class="form-control form-control-sm mr-sm-2" placeholder="3,1,1,1" id="degree-seq-input2">
+		<button type="button" class="button disabled" id="cy4-btn-gen" disabled>
+        Generate
+      	</button>
+	</div>
+	</form>
+	<footer>
+	  <ol>
+	    <li id="fn-simple"> Here we refer to what some authors term a <i>simple</i> graph, meaning that
+	    	each edge \(\{u,v\}\in E\) comprises an unordered pair of <i>distinct</i> vertices \(u,v\in G\). In
+	    	other words, loops (edges connecting a vertex to itself) are <i>not</i> permitted.
+	    <a href="#fn-simple-ref" aria-label="Back to content">↵</a></li>
+	    <li id="fn-zeros">
+	    	As zeros are of no consequence as to whether a sequence is graphic (unconnected vertices),
+	    	 it is convenient to remove all such terms from \(S_1\).
+	    	  <a href="#fn-zeros-ref" aria-label="Back to content">↵</a>
+	    </li>
+	  </ol>
+	  <div class="text-center" style="padding-bottom: 10px;">
+	      &copy; 2019 Piper Fowler-Wright 
+	      <!-- © 2019 Piper Fowler-Wright  -->
+	  </div>
+	</footer>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<!-- Cytoscape.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.8.2/cytoscape.min.js"></script>
+	<!-- js code for cy divs -->	
+	<script src="scripts/graph.js"></script>
+  </body>
+</html>

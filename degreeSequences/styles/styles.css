@@ -1,0 +1,149 @@
+body {
+	position: relative;
+}
+.jumbotron {
+	background-color: beige;
+}
+ul.nav-pills {
+	display: block;
+	font-size: 15px;
+}
+.nav-pills .nav-link {
+	border-radius: 0;
+/*	margin-top: -1px;
+	margin-bottom: -1px;*/
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.nav-item {
+	padding: 5px 0 5px 0;
+}
+.nav-link:focus,
+.nav-link:hover {
+	/*15px for no movement*/
+	padding-left: 18px; 
+	/*border-left: 1px solid #0033cc;*/
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+	color: #0033cc;
+	/*color: #007bff;*/
+	background-color: #fff;
+	border-left: 1px solid #0033cc;
+	padding-left: 18px; 
+}
+/*.form-group {
+	vertical-align: middle;
+}*/
+
+#check-degree-seq-btn{
+	border: 1px solid black;
+  	/*padding: 6px 10px;*/
+  	padding: 2px 10px;
+}
+#degree-seq-result{
+	display: inline-flex;
+	background-color: #28a745;
+}
+
+
+.text-muted {
+	font-size: 14px;
+}
+.form-control.is-valid,.form-control.is-invalid  {
+	padding: .25rem .5rem;
+	background-size: 0px;
+	background-image: none;
+}
+.form-control.is-valid~.valid-tooltip, .form-control.is-invalid~.invalid-tooltip {
+	display: inline-flex;
+	position: relative;
+	/*margin-bottom: .1rem;*/
+	margin-bottom: 3px;
+	margin-top: 3px;
+}
+
+
+#degree-seq-input{
+	padding-top: 1px;
+	padding-bottom: 1px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#cy4-btn-gen{
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+#degree-seq-input2{
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+/*Automatically numbered footnotes using css counters*/
+/*See https://www.sitepoint.com/accessible-footnotes-css/*/
+/**
+ * Initialiazing a `footnotes` counter on the wrapper
+ */
+body {
+  counter-reset: footnotes;
+}
+
+/**
+ * Inline footnotes references
+ * 1. Increment the counter at each new reference
+ * 2. Reset link styles to make it appear like regular text
+ */
+a[aria-describedby="footnote-label"] {
+  counter-increment: footnotes; /* 1 */
+  text-decoration: none; /* 2 */
+  color: inherit; /* 2 */
+  cursor: default; /* 2 */
+  outline: none; /* 2 */
+}
+
+/**
+ * Actual numbered references
+ * 1. Display the current state of the counter (e.g. `[1]`)
+ * 2. Align text as superscript
+ * 3. Make the number smaller (since it's superscript)
+ * 4. Slightly offset the number from the text
+ * 5. Reset link styles on the number to show it's usable
+ */
+a[aria-describedby="footnote-label"]::after {
+  content: '[' counter(footnotes) ']'; /* 1 */
+  vertical-align: super; /* 2 */
+  /*font-size: 0.5em; /* 3 */
+  font-size: 10px; /* 3 */
+  margin-left: 2px; /* 4 */
+  color: blue; /* 5 */
+  text-decoration: underline; /* 5 */
+  cursor: pointer; /* 5 */
+}
+
+/**
+ * Resetting the default focused styles on the number
+ */
+a[aria-describedby="footnote-label"]:focus::after {
+  outline: thin dotted;
+  outline-offset: 2px;
+}
+[aria-label="Back to content"] {
+  font-size: 0.8em;
+}
+footer {
+	margin-top: 30px;
+	padding-top: 5px;
+	border-top: 1px solid silver;
+	font-size: 13px;
+}
+footer ol {
+  padding-left: 20px;
+}
+footer :target {
+  /*background: yellow;*/
+  background: rgba(255,255,0,0.8);
+}
