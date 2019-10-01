@@ -1,1 +1,3 @@
-Demonstration of functions from phgraph.js and relating to degree sequences and the graph realisation problem.
+Demonstration of functions from piperfw/phgraph relating to degree sequences and the graph realisation problem.
+
+View at https://piperfw.github.io/degreeSequences
